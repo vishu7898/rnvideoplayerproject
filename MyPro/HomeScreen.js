@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
 import 'react-native-gesture-handler';
 import {
-  StyleSheet,
   View,
   Text,
   FlatList,
   TouchableOpacity,
-  Dimensions,
   PermissionsAndroid,
   Image
 } from 'react-native';
 
 
 import Orientation from 'react-native-orientation';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 import RNFS from 'react-native-fs'
 
@@ -29,11 +19,7 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userdata: [],
-      search_text: '',
-      filtered_data: [],
-      video_loaded: false,
-      video_location: '',
+      filedata: [],
       permission: false,
       current_path: this.props.route.params.path == '' ? RNFS.ExternalStorageDirectoryPath : this.props.route.params.path
     }
@@ -100,7 +86,7 @@ class HomeScreen extends Component {
         // Alert.alert('GOT RESULT', result[0].name);
         console.log(result);
         this.setState({
-          userdata: result.filter(item => {
+          filedata: result.filter(item => {
             return item.name.includes('.mp4') || item.name.includes('.mkv') || !item.name.includes('.')
           })
         })
@@ -147,7 +133,7 @@ class HomeScreen extends Component {
       <View style={{ flex: 1, backgroundColor: '#1B1B1B' }}>
 
         <FlatList
-          data={this.state.userdata}
+          data={this.state.filedata}
           renderItem={
             ({ item }) => this.fileitem(item)
           }

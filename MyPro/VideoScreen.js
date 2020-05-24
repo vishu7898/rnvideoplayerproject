@@ -1,37 +1,12 @@
 import React, { Component } from 'react';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { PanGestureHandler } from 'react-native-gesture-handler'
 import {
     StyleSheet,
-    View,
-    Text,
-    FlatList,
-    TouchableOpacity,
-    Dimensions,
-    PermissionsAndroid,
-    Image
-
+    View
 } from 'react-native';
-import Video from 'react-native-video';
 import VideoPlayer from 'react-native-video-controls';
-
-// import VideoPlayer from 'react-native-video-player';
-// import PXVideo from 'accessible-html5-video-player'
-// import VideoPlayer from 'react-native-video-player';
-// import Video from 'react-native-af-video-player'
 import Orientation from 'react-native-orientation';
-
-import {
-    Header,
-    LearnMoreLinks,
-    Colors,
-    DebugInstructions,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import RNFS from 'react-native-fs'
 
 class VideoScreen extends Component {
 
@@ -84,48 +59,7 @@ class VideoScreen extends Component {
 
 }
 
-
-
-
-
-
 const styles = StyleSheet.create({
-    scrollView: {
-        backgroundColor: Colors.lighter,
-    },
-    engine: {
-        position: 'absolute',
-        right: 0,
-    },
-    body: {
-        backgroundColor: Colors.white,
-    },
-    sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 24,
-    },
-    sectionTitle: {
-        fontSize: 24,
-        fontWeight: '600',
-        color: Colors.black,
-    },
-    sectionDescription: {
-        marginTop: 8,
-        fontSize: 18,
-        fontWeight: '400',
-        color: Colors.dark,
-    },
-    highlight: {
-        fontWeight: '700',
-    },
-    footer: {
-        color: Colors.dark,
-        fontSize: 12,
-        fontWeight: '600',
-        padding: 4,
-        paddingRight: 12,
-        textAlign: 'right',
-    },
     container: {
         margin: 10
     },

@@ -2,29 +2,7 @@ import React, { Component } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Dimensions,
-  PermissionsAndroid,
-  Image
 
-} from 'react-native';
-
-import Orientation from 'react-native-orientation';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-// import RNFS from 'react-native-fs'
 
 import HomeScreen  from './HomeScreen'
 import VideoScreen from './VideoScreen'
