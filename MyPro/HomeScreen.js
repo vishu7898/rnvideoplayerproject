@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import {
   StyleSheet,
   View,
@@ -12,8 +10,7 @@ import {
   PermissionsAndroid,
   Image
 } from 'react-native';
-import Video from 'react-native-video';
-import VideoPlayer from 'react-native-video-controls';
+
 
 import Orientation from 'react-native-orientation';
 
@@ -113,7 +110,7 @@ class HomeScreen extends Component {
       })
   }
 
-  useritem = (item) => {
+  fileitem = (item) => {
     var f = this.state.current_path + '/' + item.name;
     return <View style={{ margin: 5, padding: 5 }}>
       <TouchableOpacity
@@ -132,7 +129,7 @@ class HomeScreen extends Component {
       >
         <Image
           style={{ width: 40, height: 40, marginRight: 5 }}
-          source={require('./app/assets/folder.png')}
+          source={item.name.includes('.mp4') || item.name.includes('.mkv') ? require('./app/assets/video_player.png') : require('./app/assets/folder.png') }
         ></Image>
         <Text
           style={{ color: 'white', marginLeft: 10 }}
@@ -152,7 +149,7 @@ class HomeScreen extends Component {
         <FlatList
           data={this.state.userdata}
           renderItem={
-            ({ item }) => this.useritem(item)
+            ({ item }) => this.fileitem(item)
           }
         >
         </FlatList>
@@ -163,59 +160,5 @@ class HomeScreen extends Component {
   }
 
 }
-
-
-
-
-
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-  container: {
-    margin: 10
-  },
-  backgroundVideo: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-  }
-});
 
 export default HomeScreen;
